@@ -16,7 +16,8 @@ import android.util.Log;
  */
 public class DBHelper extends SQLiteOpenHelper {
 	/*
-	 * All of the fields here define the database This example is a simple class
+	 * All of the fields here define the database schema
+	 * This example is a simple database with 1 table
 	 * so there are no other fields
 	 */
 
@@ -163,6 +164,13 @@ public class DBHelper extends SQLiteOpenHelper {
 			Log.e(DBHelper.class.getName(), "INSERT exception"+Log.getStackTraceString(e));
 			throw e;
 		}
+		sql = "INSERT INTO " + TABLE_GRADES + " VALUES(null, 'delete', 'metoo', 'click to do so', '90')";
+		try {
+			database.execSQL(sql);
+		} catch (SQLException e) {
+			Log.e(DBHelper.class.getName(), "INSERT exception"+Log.getStackTraceString(e));
+			throw e;
+		}
 	}
 	/**
 	 * insertNewStudent()
@@ -220,12 +228,13 @@ public class DBHelper extends SQLiteOpenHelper {
 	 * C*R*UD Retrieve
 	 * 
 	 * method written to return the set of student records who's grade is
-	 * exactly 30 for demonstration purposes, not necessarily a useful method
+	 * less than 30
+	 * for demonstration purposes, not necessarily a useful method
 	 * 
 	 * @return Cursor of db records where grade = 30
 	 */
-	public Cursor get30() {
+	public Cursor getless30() {
 		return getReadableDatabase().query(TABLE_GRADES, null,
-				COLUMN_GRADE + "=?", new String[] { "30" }, null, null, null);
+				COLUMN_GRADE + "< ?", new String[] { "30" }, null, null, null);
 	}
 }

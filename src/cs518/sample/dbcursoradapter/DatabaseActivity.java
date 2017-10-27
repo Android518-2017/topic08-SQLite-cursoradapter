@@ -19,8 +19,9 @@ import android.widget.SimpleCursorAdapter;
  * It is used to populate and display the contents of a simple display
  * It uses a DBHelper class for the sqlite database
  * 
- * Wherever strings constants are used inline "like this" you should use
- * the values directories, the same with any integers, arrays, dimensions or colour constants.
+ * Wherever strings constants are used on the UI put them in a strings file in
+ * the values directories, the same with any integers, arrays,
+ * dimensions or colour constants.
  * 
  * This code uses a ListView with multiple TextViews and a SimpleCursorAdapter 
  * Look at the code SQLite-simple-db to see how to do the same thing

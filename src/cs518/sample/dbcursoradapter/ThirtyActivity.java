@@ -44,7 +44,7 @@ public class Thirty extends Activity  {
 		/*
 		 * The helper returns a cursor, which is a set of database records.
 		 */
-		cursor = dbh.get30();
+		cursor = dbh.getless30();
 		sca = new SimpleCursorAdapter(this, R.layout.id_mark_row, cursor, from,
 				to, 0);
 
